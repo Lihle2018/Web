@@ -1,44 +1,48 @@
-﻿<form>
+﻿@using Web.Specifications;
+@model Contact
+<form asp-action="Contact" asp-controller="Home" method="post" asp-route-ReturnUrl="@ViewData["ActionMethod"]">
     <div class="row g-3">
         <div class="col-sm-6">
             <div class="form-floating">
-                <input type="text" class="form-control border-1" id="gname" placeholder="Gurdian Name">
-                <label for="gname">Your Name</label>
+                <input type="text" asp-for="Name" class="form-control border-1" id="gname" placeholder="Name">
+                <label >Your Name</label>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-floating">
-                <input type="email" class="form-control border-1" id="gmail" placeholder="Gurdian Email">
+                <input type="email" asp-for="Email" class="form-control border-1" id="gmail" placeholder="Email">
                 <label for="gmail">Your Email</label>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-floating">
-                <label class="form-label mt-4"></label>
-                <select class="form-select">
-                    <option>Code type</option>
-                    <option>2</option>
-                    <option>3</option>
+                <select asp-for="Code" class="form-select">
+                    @foreach(var item in Lists.LicenceCode)
+                    {
+                        <option value="@item">@item</option>
+                    }
                 </select>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-floating">
-                <label class="form-label mt-4"></label>
-                <select class="form-select">
-                    <option>Course type</option>
-                    <option>2</option>
-                    <option>3</option>
+                <select asp-for="CourseType" class="form-select">
+
+                    @foreach (var item in Lists.Packages)
+                    {
+                        <option value="@item">@item</option>
+                    }
                 </select>
             </div>
         </div>
         <div class="col-12">
             <div class="form-floating">
-                <textarea class="form-control border-1" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                <textarea asp-for="Message" class="form-control border-1" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
                 <label for="message">Message</label>
             </div>
         </div>
         <div class="col-12">
+            
             <button class="btn btn w-100 py-3 text-white" style="background-color:darkblue;" type="submit">Submit</button>
         </div>
     </div>
