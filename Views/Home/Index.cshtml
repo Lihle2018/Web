@@ -1,5 +1,5 @@
-﻿<!-- Carousel Start -->
-
+﻿@using Web.Specifications;
+<!-- Carousel Start -->
 <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -97,7 +97,7 @@
 <!-- About End -->
 <!--Courses starts here-->
 <div id="courses" class="container-xxl courses my-6 py-6 pb-0">
-    <partial name="_CoursesPartial" />
+    <partial name="_CoursesPartial" model="@Lists.packages.Where(x=>x.Name=="Code 10").ToList()" />
     <div class="col-lg-8 my-6 mb-0 text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
          <div class="bg-secondary  p-5">
             <h1 class="mb-4" style=" color:darkblue;" id="AppointmentForm">Make Appointment</h1>

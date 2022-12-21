@@ -8,7 +8,6 @@ namespace Web.Controllers
     {
         private EmailService _emailService;
         private FirebaseService _firebaseService;
-        
         public HomeController(EmailService emailService,FirebaseService firebaseService)
         {
             _emailService = emailService;
@@ -34,7 +33,6 @@ namespace Web.Controllers
         }
         public async Task<IActionResult> Contact(Contact contact,string ReturnUrl)
         {
-            var path = HttpContext.Session.GetString("ReturnUrl");
             if (ModelState.IsValid)
             {
                 var Subject =contact.Name+" " +contact.CourseType+" " + contact.Code;
