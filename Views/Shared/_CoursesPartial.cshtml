@@ -13,7 +13,7 @@
                 <div class="courses-item d-flex flex-column bg-white overflow-hidden h-100">
 
                     <div class="text-center p-4 pt-0">
-                        <div style="background-color:blue;" class="d-inline-block text-white fs-5 py-1 px-4 mb-4">@item.price.ToString("C", CultureInfo.CurrentCulture)</div>
+                        <div style="background-color:blue;" class="d-inline-block text-white fs-5 py-1 px-4 mb-4">@item.price.ToString("C", new CultureInfo("en-ZA"))</div>
                         <h5 class="mb-3" style=" color:darkblue;">@item.Code: @item.Name</h5>
                         <p>@item.Description</p>
                         <ol class="breadcrumb justify-content-center mb-0">
